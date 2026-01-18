@@ -1,8 +1,8 @@
-// YouTube Proxy API for Vercel Serverless Function
-// Uses @distube/ytdl-core which is more actively maintained
+// YouTube Proxy API using Cobalt.tools (free, reliable YouTube extraction)
+// This is more reliable than parsing YouTube directly
 
 export const config = {
-    runtime: 'edge', // Use edge runtime for better performance
+    runtime: 'edge',
 };
 
 export default async function handler(request) {
@@ -35,84 +35,71 @@ export default async function handler(request) {
         );
 
         if (!ytMatch) {
-            // Not a YouTube URL - try to proxy the direct URL
             return new Response(
-                JSON.stringify({ error: 'Invalid YouTube URL. For direct video URLs, load them directly in the browser.' }),
+                JSON.stringify({ error: 'Invalid YouTube URL. For direct video URLs (.mp4, .webm), load them directly.' }),
                 { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
             );
         }
 
-        const videoId = ytMatch[1];
-
-        // Use YouTube's embed player info endpoint (more reliable than scraping)
-        // This gets a playable stream URL
-        const infoUrl = `https://www.youtube.com/watch?v=${videoId}`;
-
-        // Try using an alternative approach - get the video info
-        const response = await fetch(infoUrl, {
+        // Use Cobalt API - a free, open-source YouTube extraction service
+        // https://github.com/imputnet/cobalt
+        const cobaltResponse = await fetch('https://api.cobalt.tools/api/json', {
+            method: 'POST',
             headers: {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
             },
+            body: JSON.stringify({
+                url: videoUrl,
+                vQuality: '720',      // 720p for good balance of quality and speed
+                filenamePattern: 'basic',
+                isAudioOnly: false,
+                disableMetadata: true,
+            }),
         });
 
-        if (!response.ok) {
-            throw new Error('Failed to fetch video info');
+        if (!cobaltResponse.ok) {
+            const errorText = await cobaltResponse.text();
+            throw new Error(`Cobalt API error: ${cobaltResponse.status} - ${errorText}`);
         }
 
-        const html = await response.text();
+        const cobaltData = await cobaltResponse.json();
 
-        // Extract player response from the page
-        const playerResponseMatch = html.match(/var ytInitialPlayerResponse = ({.+?});/);
-
-        if (!playerResponseMatch) {
-            throw new Error('Could not extract video data from YouTube');
-        }
-
-        const playerResponse = JSON.parse(playerResponseMatch[1]);
-
-        // Check if video is playable
-        if (playerResponse.playabilityStatus?.status !== 'OK') {
-            const reason = playerResponse.playabilityStatus?.reason || 'Video is not available';
+        // Check response status
+        if (cobaltData.status === 'error') {
             return new Response(
-                JSON.stringify({ error: reason }),
-                { status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+                JSON.stringify({
+                    error: cobaltData.text || 'Failed to extract video',
+                }),
+                { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
             );
         }
 
-        // Get streaming data
-        const streamingData = playerResponse.streamingData;
+        // Get the video URL from response
+        let streamUrl = null;
 
-        if (!streamingData) {
-            throw new Error('No streaming data available');
+        if (cobaltData.status === 'redirect' && cobaltData.url) {
+            streamUrl = cobaltData.url;
+        } else if (cobaltData.status === 'stream' && cobaltData.url) {
+            streamUrl = cobaltData.url;
+        } else if (cobaltData.status === 'picker' && cobaltData.picker?.length > 0) {
+            // Multiple options available, pick the first video
+            const videoOption = cobaltData.picker.find(p => p.type === 'video') || cobaltData.picker[0];
+            streamUrl = videoOption?.url;
         }
 
-        // Prefer formats with both audio and video
-        let formats = streamingData.formats || [];
-
-        if (formats.length === 0) {
-            // Fall back to adaptive formats (may need merging)
-            formats = streamingData.adaptiveFormats || [];
-        }
-
-        // Find the best format with audio+video
-        const format = formats.find(f => f.mimeType?.includes('video/mp4') && f.audioQuality)
-            || formats.find(f => f.mimeType?.includes('video/'))
-            || formats[0];
-
-        if (!format || !format.url) {
-            // Try to return format info for debugging
+        if (!streamUrl) {
             return new Response(
                 JSON.stringify({
-                    error: 'No playable format found',
-                    videoId,
-                    availableFormats: formats.length
+                    error: 'Could not extract video URL',
+                    details: cobaltData,
                 }),
                 { status: 404, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
             );
         }
 
-        // Return the direct video URL (redirect)
-        return Response.redirect(format.url, 302);
+        // Redirect to the video stream
+        return Response.redirect(streamUrl, 302);
 
     } catch (error) {
         console.error('YouTube Proxy Error:', error);
@@ -121,7 +108,7 @@ export default async function handler(request) {
             JSON.stringify({
                 error: 'Failed to process YouTube video',
                 message: error.message,
-                tip: 'YouTube frequently changes their systems. Try using a direct video URL (.mp4, .webm) instead.'
+                tip: 'If this persists, try using a direct video URL (.mp4, .webm) or download the video first.'
             }),
             { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
         );
