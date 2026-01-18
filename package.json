@@ -1,0 +1,44 @@
+{
+  "name": "catch-my-frame",
+  "version": "1.0.1",
+  "description": "Professional browser-based tool for extracting high-quality frames from any video source. Features AI scene detection, batch capture, and lossless export.",
+  "author": "Hallu Dodamani",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CodingWithDodamani/CatchMyFrame.git"
+  },
+  "keywords": [
+    "video",
+    "frame",
+    "capture",
+    "screenshot",
+    "ai",
+    "scene-detection",
+    "react",
+    "typescript"
+  ],
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@google/genai": "^1.27.0",
+    "@types/file-saver": "^2.0.7",
+    "file-saver": "^2.0.5",
+    "jszip": "^3.10.1",
+    "lucide-react": "^0.562.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "ytdl-core": "^4.11.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0"
+  }
+}

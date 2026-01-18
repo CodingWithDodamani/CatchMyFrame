@@ -1,0 +1,5 @@
+{
+  "name": " Frame Grabber Pro. Version 1.0.1",
+  "description": "A modern web tool to capture high-quality frames from videos. Upload a local video file, play it back, and capture specific moments as PNG images for download.",
+  "requestFramePermissions": []
+}

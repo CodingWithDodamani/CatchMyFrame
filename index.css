@@ -1,0 +1,788 @@
+/* =================================
+   THEME SYSTEM - CSS Custom Properties
+   ================================= */
+
+/* Dark Theme (Default) - VIBRANT & EYE-CATCHING */
+:root,
+:root.dark {
+    /* Typography */
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-display: 'Outfit', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', Consolas, monospace;
+
+    /* Background Colors - Deep with subtle purple tint */
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #12121a;
+    --bg-tertiary: #1a1a24;
+    --bg-elevated: #252532;
+    --bg-card: rgba(255, 255, 255, 0.04);
+    --bg-card-hover: rgba(255, 255, 255, 0.08);
+    --bg-overlay: rgba(10, 10, 15, 0.95);
+
+    /* Text Colors - HIGH CONTRAST for visibility */
+    --text-primary: #ffffff;
+    --text-secondary: #e2e8f0;
+    --text-tertiary: #a1a1aa;
+    --text-muted: #71717a;
+    --text-inverse: #0a0a0f;
+
+    /* Hero Section Text Colors - WHITE in dark mode */
+    --hero-title: #ffffff;
+    --hero-title-gradient-from: #ffffff;
+    --hero-title-gradient-via: #ffffff;
+    --hero-title-gradient-to: #a1a1aa;
+    --hero-subtitle: #a1a1aa;
+    --hero-badge-bg: rgba(255, 255, 255, 0.05);
+    --hero-badge-border: rgba(255, 255, 255, 0.1);
+    --hero-badge-text: #a5b4fc;
+
+    /* Brand Colors - ELECTRIC CYAN/BLUE (more vibrant) */
+    --brand-primary: #00e5ff;
+    --brand-primary-hover: #33eaff;
+    --brand-primary-active: #00c4db;
+    --brand-primary-light: rgba(0, 229, 255, 0.18);
+    --brand-primary-glow: rgba(0, 229, 255, 0.55);
+
+    /* Brand Secondary - Purple gradient base */
+    --brand-secondary: #1e1e2e;
+    --brand-secondary-hover: #2d2d40;
+    --brand-secondary-active: #161622;
+
+    /* Accent Colors - VIVID PURPLE/MAGENTA (enhanced) */
+    --accent: #ff6bc6;
+    --accent-hover: #ff8ed4;
+    --accent-light: rgba(255, 107, 198, 0.25);
+
+    /* Secondary Accent - Electric Violet (brighter) */
+    --accent-secondary: #b366ff;
+    --accent-secondary-hover: #cc8cff;
+
+    /* Link Colors - Bright Cyan (enhanced) */
+    --link: #00e5ff;
+    --link-hover: #80f0ff;
+    --link-visited: #cc8cff;
+
+    /* Border Colors - Subtle glow effect (enhanced) */
+    --border-primary: rgba(0, 229, 255, 0.18);
+    --border-secondary: rgba(255, 255, 255, 0.1);
+    --border-hover: rgba(0, 229, 255, 0.35);
+    --border-focus: rgba(0, 229, 255, 0.65);
+
+    /* Surface Colors */
+    --surface-glass: rgba(255, 255, 255, 0.06);
+    --surface-glass-hover: rgba(0, 229, 255, 0.1);
+
+    /* Shadows - Neon glow effects (enhanced) */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.6);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 60px -12px var(--brand-primary-glow);
+    --shadow-btn: 0 4px 25px -4px rgba(0, 229, 255, 0.55);
+    --shadow-neon: 0 0 25px rgba(0, 229, 255, 0.35), 0 0 50px rgba(0, 229, 255, 0.15);
+
+    /* Status Colors - Vivid & bright */
+    --success: #10b981;
+    --success-hover: #34d399;
+    --success-bg: rgba(16, 185, 129, 0.2);
+    --warning: #fbbf24;
+    --warning-hover: #fcd34d;
+    --warning-bg: rgba(251, 191, 36, 0.2);
+    --error: #f43f5e;
+    --error-hover: #fb7185;
+    --error-bg: rgba(244, 63, 94, 0.2);
+    --info: #38bdf8;
+    --info-hover: #7dd3fc;
+    --info-bg: rgba(56, 189, 248, 0.2);
+
+    /* Scrollbar - Themed */
+    --scrollbar-thumb: #2d2d40;
+    --scrollbar-thumb-hover: #00e5ff;
+    --scrollbar-track: rgba(0, 0, 0, 0.3);
+
+    /* Input - Clean with accent */
+    --input-bg: rgba(255, 255, 255, 0.05);
+    --input-border: rgba(255, 255, 255, 0.1);
+    --input-focus: rgba(0, 229, 255, 0.5);
+    --input-placeholder: #71717a;
+
+    /* Focus Ring - Neon cyan */
+    --focus-ring: 0 0 0 2px var(--bg-primary), 0 0 0 4px var(--brand-primary);
+}
+
+/* Light Theme - VIBRANT & MODERN */
+:root.light {
+    /* Typography */
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-display: 'Outfit', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', Consolas, monospace;
+
+    /* Background Colors - Clean white with subtle warmth */
+    --bg-primary: #fafafa;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f5f3ff;
+    --bg-elevated: #ffffff;
+    --bg-card: rgba(139, 92, 246, 0.04);
+    --bg-card-hover: rgba(139, 92, 246, 0.08);
+    --bg-overlay: rgba(255, 255, 255, 0.98);
+
+    /* Text Colors - HIGH CONTRAST for readability */
+    --text-primary: #18181b;
+    --text-secondary: #3f3f46;
+    --text-tertiary: #52525b;
+    --text-muted: #71717a;
+    --text-inverse: #fafafa;
+
+    /* Hero Section Text Colors - BLACK/DARK in light mode */
+    --hero-title: #18181b;
+    --hero-title-gradient-from: #18181b;
+    --hero-title-gradient-via: #3f3f46;
+    --hero-title-gradient-to: #52525b;
+    --hero-subtitle: #52525b;
+    --hero-badge-bg: rgba(124, 58, 237, 0.08);
+    --hero-badge-border: rgba(124, 58, 237, 0.2);
+    --hero-badge-text: #7c3aed;
+
+    /* Brand Colors - DEEP VIBRANT VIOLET (enhanced) */
+    --brand-primary: #8b5cf6;
+    --brand-primary-hover: #7c3aed;
+    --brand-primary-active: #6d28d9;
+    --brand-primary-light: rgba(139, 92, 246, 0.15);
+    --brand-primary-glow: rgba(139, 92, 246, 0.4);
+
+    /* Brand Secondary - Soft purple tint */
+    --brand-secondary: #f5f3ff;
+    --brand-secondary-hover: #ede9fe;
+    --brand-secondary-active: #ddd6fe;
+
+    /* Accent Colors - VIBRANT ROSE/PINK (enhanced) */
+    --accent: #f43f5e;
+    --accent-hover: #e11d48;
+    --accent-light: rgba(244, 63, 94, 0.15);
+
+    /* Secondary Accent - Vibrant Orange */
+    --accent-secondary: #fb923c;
+    --accent-secondary-hover: #f97316;
+
+    /* Link Colors - Deep Violet (enhanced) */
+    --link: #8b5cf6;
+    --link-hover: #7c3aed;
+    --link-visited: #a78bfa;
+
+    /* Border Colors - Subtle violet tint (enhanced) */
+    --border-primary: rgba(139, 92, 246, 0.18);
+    --border-secondary: rgba(0, 0, 0, 0.08);
+    --border-hover: rgba(139, 92, 246, 0.3);
+    --border-focus: rgba(139, 92, 246, 0.55);
+
+    /* Surface Colors */
+    --surface-glass: rgba(255, 255, 255, 0.92);
+    --surface-glass-hover: rgba(139, 92, 246, 0.08);
+
+    /* Shadows - Subtle with violet tint (enhanced) */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 10px rgba(139, 92, 246, 0.1);
+    --shadow-lg: 0 12px 24px rgba(139, 92, 246, 0.15);
+    --shadow-xl: 0 24px 36px rgba(139, 92, 246, 0.18);
+    --shadow-glow: 0 0 50px -8px var(--brand-primary-glow);
+    --shadow-btn: 0 4px 20px -4px rgba(139, 92, 246, 0.45);
+    --shadow-neon: 0 0 25px rgba(139, 92, 246, 0.2);
+
+    /* Status Colors - Vivid & clear */
+    --success: #059669;
+    --success-hover: #047857;
+    --success-bg: rgba(5, 150, 105, 0.12);
+    --warning: #d97706;
+    --warning-hover: #b45309;
+    --warning-bg: rgba(217, 119, 6, 0.12);
+    --error: #dc2626;
+    --error-hover: #b91c1c;
+    --error-bg: rgba(220, 38, 38, 0.12);
+    --info: #0891b2;
+    --info-hover: #0e7490;
+    --info-bg: rgba(8, 145, 178, 0.12);
+
+    /* Scrollbar - Violet themed */
+    --scrollbar-thumb: #c4b5fd;
+    --scrollbar-thumb-hover: #8b5cf6;
+    --scrollbar-track: #f5f3ff;
+
+    /* Input - Clean with accent */
+    --input-bg: #ffffff;
+    --input-border: rgba(0, 0, 0, 0.12);
+    --input-focus: rgba(139, 92, 246, 0.45);
+    --input-placeholder: #a1a1aa;
+
+    /* Focus Ring - Violet */
+    --focus-ring: 0 0 0 2px var(--bg-primary), 0 0 0 4px var(--brand-primary);
+}
+
+/* Smooth theme transition */
+* {
+    transition-property: background-color, border-color, color, box-shadow;
+    transition-timing-function: ease-in-out;
+    transition-duration: 200ms;
+}
+
+/* Disable transition for animations */
+.no-transition,
+.animate-ping,
+.animate-bounce,
+.animate-spin,
+.animate-pulse {
+    transition: none !important;
+}
+
+/* Theme-aware scrollbar */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+}
+
+/* =================================
+   THEME UTILITY CLASSES
+   ================================= */
+
+/* Background utilities */
+.theme-bg {
+    background-color: var(--bg-primary);
+}
+
+.theme-bg-secondary {
+    background-color: var(--bg-secondary);
+}
+
+.theme-bg-tertiary {
+    background-color: var(--bg-tertiary);
+}
+
+.theme-bg-card {
+    background-color: var(--bg-card);
+}
+
+.theme-bg-elevated {
+    background-color: var(--bg-elevated);
+}
+
+/* Card container with theme-aware glassmorphism */
+.theme-card {
+    background: var(--bg-card);
+    border-color: var(--border-secondary);
+}
+
+.theme-card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-hover);
+}
+
+/* Section container with theme-aware borders */
+.theme-section-border {
+    border-color: var(--border-secondary);
+}
+
+/* Text utilities */
+.theme-text {
+    color: var(--text-primary);
+}
+
+.theme-text-secondary {
+    color: var(--text-secondary);
+}
+
+.theme-text-tertiary {
+    color: var(--text-tertiary);
+}
+
+.theme-text-muted {
+    color: var(--text-muted);
+}
+
+/* Border utilities */
+.theme-border {
+    border-color: var(--border-primary);
+}
+
+.theme-border-secondary {
+    border-color: var(--border-secondary);
+}
+
+/* Surface utilities */
+.theme-surface-glass {
+    background-color: var(--surface-glass);
+}
+
+/* Nav header on scroll */
+:root.dark .nav-scrolled {
+    background-color: rgba(17, 24, 39, 0.8);
+}
+
+:root.light .nav-scrolled {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Input styling */
+.theme-input {
+    background-color: var(--input-bg);
+    border-color: var(--input-border);
+}
+
+.theme-input:focus {
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 2px var(--input-focus);
+}
+
+/* =================================
+   BUTTON COMPONENTS
+   ================================= */
+
+/* Base Button Styles */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+    border-radius: 0.75rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.btn:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Primary Button */
+.btn-primary {
+    background-color: var(--brand-primary);
+    color: var(--text-inverse);
+    box-shadow: var(--shadow-btn);
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: var(--brand-primary-hover);
+    transform: translateY(-1px);
+}
+
+.btn-primary:active:not(:disabled) {
+    background-color: var(--brand-primary-active);
+    transform: translateY(0);
+}
+
+/* Secondary Button */
+.btn-secondary {
+    background-color: var(--brand-secondary);
+    color: var(--text-primary);
+    border-color: var(--border-primary);
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background-color: var(--brand-secondary-hover);
+    border-color: var(--border-hover);
+}
+
+.btn-secondary:active:not(:disabled) {
+    background-color: var(--brand-secondary-active);
+}
+
+/* Outline Button */
+.btn-outline {
+    background-color: transparent;
+    color: var(--brand-primary);
+    border-color: var(--brand-primary);
+}
+
+.btn-outline:hover:not(:disabled) {
+    background-color: var(--brand-primary-light);
+}
+
+.btn-outline:active:not(:disabled) {
+    background-color: var(--brand-primary);
+    color: var(--text-inverse);
+}
+
+/* Ghost Button */
+.btn-ghost {
+    background-color: transparent;
+    color: var(--text-secondary);
+}
+
+.btn-ghost:hover:not(:disabled) {
+    background-color: var(--surface-glass);
+    color: var(--text-primary);
+}
+
+.btn-ghost:active:not(:disabled) {
+    background-color: var(--surface-glass-hover);
+}
+
+/* Danger Button */
+.btn-danger {
+    background-color: var(--error);
+    color: var(--text-inverse);
+}
+
+.btn-danger:hover:not(:disabled) {
+    background-color: var(--error-hover);
+}
+
+/* Button Sizes */
+.btn-sm {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+    border-radius: 0.5rem;
+}
+
+.btn-lg {
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+    border-radius: 1rem;
+}
+
+/* =================================
+   LINK STYLES
+   ================================= */
+
+.link {
+    color: var(--link);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.link:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+
+.link:visited {
+    color: var(--link-visited);
+}
+
+.link:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+    border-radius: 0.125rem;
+}
+
+/* =================================
+   TYPOGRAPHY CLASSES
+   ================================= */
+
+.font-display {
+    font-family: var(--font-display);
+}
+
+.font-sans {
+    font-family: var(--font-sans);
+}
+
+.font-mono {
+    font-family: var(--font-mono);
+}
+
+/* Heading styles */
+.heading-1 {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--text-primary);
+}
+
+.heading-2 {
+    font-family: var(--font-display);
+    font-size: 2.25rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--text-primary);
+}
+
+.heading-3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--text-primary);
+}
+
+.heading-4 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--text-primary);
+}
+
+/* Body text */
+.body-text {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.body-small {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+
+.caption {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--text-tertiary);
+}
+
+/* =================================
+   ACCESSIBILITY UTILITIES
+   ================================= */
+
+/* Screen reader only - visually hidden but accessible */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Focus visible utility */
+.focus-ring:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+}
+
+/* Skip link for keyboard navigation */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    z-index: 999;
+    padding: 0.75rem 1rem;
+    background-color: var(--bg-elevated);
+    color: var(--text-primary);
+    border-radius: 0.5rem;
+    font-weight: 500;
+}
+
+.skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* High contrast mode adjustments */
+@media (prefers-contrast: high) {
+
+    :root,
+    :root.dark {
+        --border-primary: rgba(255, 255, 255, 0.3);
+        --border-secondary: rgba(255, 255, 255, 0.2);
+    }
+
+    :root.light {
+        --border-primary: rgba(0, 0, 0, 0.3);
+        --border-secondary: rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* =================================
+   ANIMATIONS & UTILITIES
+   ================================= */
+
+/* VideoPlayer bezel animations */
+@keyframes bezel-ping {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    20% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    80% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.2);
+    }
+}
+
+.animate-bezel-ping {
+    animation: bezel-ping 0.5s ease-out forwards;
+}
+
+/* Scrollbar utilities */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    -webkit-scrollbar-width: none;
+    /* Fallback for older WebKit browsers */
+    scrollbar-width: none;
+}
+
+/* Linear fade mask for filmstrip */
+.mask-linear-fade {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+/* Fade in animation */
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animate-in utilities (fallback if not provided by Tailwind) */
+.animate-in {
+    animation-fill-mode: both;
+}
+
+.fade-in {
+    animation-name: fadeIn;
+    animation-duration: 150ms;
+}
+
+.zoom-in {
+    animation-name: zoomIn;
+    animation-duration: 150ms;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.slide-in-from-bottom-2 {
+    animation-name: slideInFromBottom2;
+    animation-duration: 200ms;
+}
+
+@keyframes slideInFromBottom2 {
+    from {
+        transform: translateY(0.5rem);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.slide-in-from-bottom-4 {
+    animation-name: slideInFromBottom4;
+    animation-duration: 300ms;
+}
+
+@keyframes slideInFromBottom4 {
+    from {
+        transform: translateY(1rem);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.duration-300 {
+    animation-duration: 300ms;
+}
+
+/* FrameGallery Styles */
+.animate-slide-down {
+    animation: slide-down 0.3s ease-out forwards;
+}
+
+@keyframes slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}

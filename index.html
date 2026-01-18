@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catch My Frame | Professional Video Frame Extraction</title>
+    <meta name="description" content="Catch My Frame is the free, browser-based tool for capturing high-fidelity stills from any video. AI-powered scene detection, 4K export, and no uploads required.">
+    <meta name="keywords" content="video frame extraction, screenshot from video, capture video frame, AI scene detection, video to image">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Catch My Frame | Professional Video Frame Extraction">
+    <meta property="og:description" content="The free, browser-based tool for capturing high-fidelity stills from any video. AI-powered scene detection, 4K export.">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Catch My Frame">
+    <meta name="twitter:description" content="Professional video frame extraction tool. Free, private, and powerful.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        display: ['Outfit', 'system-ui', '-apple-system', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Consolas', 'monospace'],
+                    },
+                    colors: {
+                        'brand-blue': '#3b82f6',
+                        'dark-bg': '#111827',
+                        'dark-card': '#1f2937',
+                        'dark-border': '#374151',
+
+                        // shadcn dark theme colors
+                        border: "hsl(217 33% 17%)",
+                        input: "hsl(217 33% 17%)",
+                        ring: "hsl(217 33% 17%)",
+                        background: "hsl(222 84% 5%)",
+                        foreground: "hsl(210 40% 98%)",
+                        primary: {
+                            DEFAULT: "hsl(210 40% 98%)",
+                            foreground: "hsl(222 84% 5%)",
+                        },
+                        secondary: {
+                            DEFAULT: "hsl(217 33% 17%)",
+                            foreground: "hsl(210 40% 98%)",
+                        },
+                        destructive: {
+                            DEFAULT: "hsl(0 63% 31%)",
+                            foreground: "hsl(210 40% 98%)",
+                        },
+                        muted: {
+                            DEFAULT: "hsl(217 33% 17%)",
+                            foreground: "hsl(215 20% 65%)",
+                        },
+                        accent: {
+                            DEFAULT: "hsl(217 33% 17%)",
+                            foreground: "hsl(210 40% 98%)",
+                        },
+                        popover: {
+                            DEFAULT: "hsl(222 84% 5%)",
+                            foreground: "hsl(210 40% 98%)",
+                        },
+                        card: {
+                            DEFAULT: "hsl(217 33% 17%)",
+                            foreground: "hsl(210 40% 98%)",
+                        },
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        /* Custom scrollbar for a modern look */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: hsl(222 84% 5% / 0.5);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: hsl(217 33% 17%);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: hsl(217 33% 25%);
+        }
+
+        /* Custom text selection */
+        ::selection {
+            background-color: #3b82f6;
+            color: white;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.27.0"
+  }
+}
+</script>
+    <link rel="stylesheet" href="/index.css">
+</head>
+
+<body class="bg-background text-foreground">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>
